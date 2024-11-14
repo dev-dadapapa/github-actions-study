@@ -1,0 +1,26 @@
+name: output
+on: push
+
+jobs:
+  create-output:
+    runs-on: ubuntu-latest
+    outputs:
+        test: ${{ steps.check-output.outpus.lang }}
+    steps:
+    - name: echo output
+      id: check-output
+      run: |
+        echo "lang=english" >> $GITHUB_OUTPUT
+    - name: call output from steps
+      run: |
+        echo ${{ steps.check-output.outputs.lang }}
+      
+
+  get-output:
+    needs: [create-output]
+    runs-on: ubuntu-latest
+    steps:
+    - name: call another jobs' output
+      run: |
+        echo ${{ needs.create-output.outputs.test  }}
+    
