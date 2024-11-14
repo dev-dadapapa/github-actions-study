@@ -1,0 +1,15 @@
+name: branch-filter
+on:
+    push:
+        branches: ["dev"]
+        paths:
+        - '.github/workflows/part1/*'
+        - '!.github/workflows/part1/push.yaml' 
+
+
+jobs:
+    branch-filter:
+        runs-on: ubuntu-latest
+        steps:
+        - name: echo
+          run: echo "is this dev?"
