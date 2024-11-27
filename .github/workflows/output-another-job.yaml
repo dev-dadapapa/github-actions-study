@@ -2,7 +2,7 @@ name: "output-test from another jobs"
 on: workflow_dispatch
 
 jobs:
-  1st_job:
+  first_job:
     runs-on: ubuntu-latest
     outputs:  
       share_name: ${{ steps.output1.outputs.name}}
@@ -15,10 +15,10 @@ jobs:
         run: |
           echo  ${{ steps.output1.outputs.name }}  
 
-  2nd_job:
-    needs: [1st_job]
+  second_job:
+    needs: [first_job]
     runs-on: ubuntu-latest
     steps:
       - name: call-output
         run: |
-          echo  ${{ needs.1st_job.outputs.share_name }}
+          echo  ${{ needs.first_job.outputs.share_name }}
