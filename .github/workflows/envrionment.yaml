@@ -2,12 +2,32 @@ name: "env level"
 on: workflow_dispatch
 
 env:
-  level: workflow
+  level: level-workflow
 
 jobs:
-  env-level-test:
+  env-level-test1:
     runs-on: ubuntu-latest
     steps:
       - name: call env
         run: |
-          echo "workflow Env: ${{ env.level }}"
+          echo "call env: ${{ env.level }}"
+
+  env-level-test2:
+    runs-on: ubuntu-latest
+    env:
+      level: level-job
+    steps:
+      - name: call env
+        run: |
+          echo "call env: ${{ env.level }}"
+
+  env-level-test3:
+    runs-on: ubuntu-latest
+    env:
+      level: level-job
+    steps:
+      env: 
+        level: level-steps
+      - name: call env
+        run: |
+          echo "call env: ${{ env.level }}"
