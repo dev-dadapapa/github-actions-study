@@ -1,25 +1,12 @@
-name: "env level"
-on: workflow_dispatch
-
-env:
-  level: level-workflow
-
+name: "variables env"
+on: push
+  
 jobs:
-  env-test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: set env
-        run: |
-          echo "level=job" >> $GITHUB_ENV
-      - name: get env
-        run: |
-          echo ${{ env.level }}
-
   check-env:
     runs-on: ubuntu-latest
     steps:
       - name: get env
         run: |
-          echo ${{ env.level }}
+          echo ${{ var.level }}
 
  
