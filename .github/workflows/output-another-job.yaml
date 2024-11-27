@@ -9,7 +9,7 @@ jobs:
         id: output1
         run: |
           echo "name=test1" >> "$GITHUB_OUTPUT"
-      - name: call output
+      - name: call-output
         run: |
           echo "1st output:"  ${{ steps.output1.output.name }}
 
