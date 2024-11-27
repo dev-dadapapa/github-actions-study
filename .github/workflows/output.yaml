@@ -15,5 +15,5 @@ jobs:
           echo "name=test" >> "$GITHUB_OUTPUT"
       - name: echo output
         run: |
-         echo ${{ steps.output1.output.name }}
-         echo ${{ steps.output2.output.name }}
+         echo ${{ steps.output1.outputs.name }}
+         echo ${{ steps.output2.outputs.name }}
