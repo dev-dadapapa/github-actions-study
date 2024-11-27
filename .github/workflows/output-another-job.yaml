@@ -19,4 +19,4 @@ jobs:
     steps:
       - name: call-output
         run: |
-        echo "2nd output: " ${{ 1st_job.stpes.output1.outputs.name }}
+        echo "2nd output: " ${{ needs.1st_job.outputs.name }}
