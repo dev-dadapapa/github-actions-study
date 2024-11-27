@@ -1,3 +1,6 @@
+name: "output test"
+on: workflow_dispatch
+
 jobs:
   myjob1:
     runs-on: ubuntu-latest
