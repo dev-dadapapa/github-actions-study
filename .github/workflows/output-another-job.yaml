@@ -1,11 +1,11 @@
-name: "output-test from another jobs
+name: "output-test from another jobs"
 on: workflow_dispatch
 
 jobs:
   1st_job:
     runs-on: ubuntu-latest
     steps:
-      - name: make output
+      - name: make-output
         id: output1
         run: |
           echo "name=test1" >> "$GITHUB_OUTPUT"
