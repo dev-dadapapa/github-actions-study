@@ -1,26 +1,19 @@
-name: output
-on: push
+name: "output test"
+on: workflow_dispatch
 
 jobs:
-  create-output:
-    runs-on: ubuntu-latest
-    outputs:
-        test: ${{ steps.check-output.outpus.lang }}
-    steps:
-    - name: echo output
-      id: check-output
-      run: |
-        echo "lang=english" >> $GITHUB_OUTPUT
-    - name: call output from steps
-      run: |
-        echo ${{ steps.check-output.outputs.lang }}
-      
-
-  get-output:
-    needs: [create-output]
+  myjob1:
     runs-on: ubuntu-latest
     steps:
-    - name: call another jobs' output
-      run: |
-        echo ${{ needs.create-output.outputs.test  }}
-    
+      - name: output
+        id: output1
+        run: |
+          echo "name=test1" >> "$GITHUB_OUTPUT"
+      - name: output
+        id: output2
+        run: |
+          echo "name=test2" >> "$GITHUB_OUTPUT"
+      - name: echo output
+        run: |
+         echo ${{ steps.output1.outputs.name }}
+         echo ${{ steps.output2.outputs.name }}

@@ -1,0 +1,22 @@
+name: output-test from another jobs:
+on: workflow_dispatch
+
+jobs:
+  1st_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: make output
+        id: output1
+        run: |
+          echo "name=test1" >> "$GITHUB_OUTPUT"
+      - name: call output
+        run: |
+          echo "1st output:"  ${{ steps.output1.output.name }}
+
+  2nd_job:
+    needs: [1st_job]
+    runs-on: ubuntu-latest
+    steps:
+      - name: call-output
+        run: |
+        echo "2nd output: " ${{ 1st_job.stpes.output1.outputs.name }}
