@@ -26,8 +26,8 @@ jobs:
     env:
       level: level-job
     steps:
-      env: 
-        level: level-steps
       - name: call env
+        env: 
+          level: level-steps
         run: |
           echo "call env: ${{ env.level }}"
