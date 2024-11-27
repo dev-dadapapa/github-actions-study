@@ -5,29 +5,21 @@ env:
   level: level-workflow
 
 jobs:
-  env-level-test1:
+  env-test:
     runs-on: ubuntu-latest
     steps:
-      - name: call env
+      - name: set env
         run: |
-          echo "call env: ${{ env.level }}"
+          echo "level=job" >> $GITHUB_ENV
+      - name: get env
+        run: |
+          echo 'env.level'
 
-  env-level-test2:
+  check-env:
     runs-on: ubuntu-latest
-    env:
-      level: level-job
     steps:
-      - name: call env
+      - name: get env
         run: |
-          echo "call env: ${{ env.level }}"
+          echo 'env.level'
 
-  env-level-test3:
-    runs-on: ubuntu-latest
-    env:
-      level: level-job
-    steps:
-      - name: call env
-        env: 
-          level: level-steps
-        run: |
-          echo "call env: ${{ env.level }}"
+ 
