@@ -1,4 +1,4 @@
-name: output-test from another jobs:
+name: "output-test from another jobs
 on: workflow_dispatch
 
 jobs:
