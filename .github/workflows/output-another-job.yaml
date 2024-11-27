@@ -5,7 +5,7 @@ jobs:
   1st_job:
     runs-on: ubuntu-latest
     outputs:  
-     share_name: ${{ steps.output1.outputs.name}}
+      share_name: ${{ steps.output1.outputs.name}}
     steps:
       - name: make-output
         id: output1
