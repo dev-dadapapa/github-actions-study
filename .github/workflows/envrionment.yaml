@@ -1,0 +1,13 @@
+name: env level
+on: workflow_dispatch
+
+env:
+  level: workflow
+
+jobs:
+  env-level-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: call env
+        run: |
+          echo "workflow Env: ${{ env.level }}"
