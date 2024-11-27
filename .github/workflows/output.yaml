@@ -8,11 +8,11 @@ jobs:
       - name: output
         id: output1
         run: |
-          echo "name=test" >> "$GITHUB_OUTPUT"
+          echo "name=test1" >> "$GITHUB_OUTPUT"
       - name: output
         id: output2
         run: |
-          echo "name=test" >> "$GITHUB_OUTPUT"
+          echo "name=test2" >> "$GITHUB_OUTPUT"
       - name: echo output
         run: |
          echo ${{ steps.output1.outputs.name }}
