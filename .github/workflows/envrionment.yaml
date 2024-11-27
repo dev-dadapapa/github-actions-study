@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: get env
         run: |
-          echo ${{ var.level }}
+          echo ${{ vars.level }}
 
  
