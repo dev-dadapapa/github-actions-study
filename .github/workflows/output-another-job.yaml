@@ -11,7 +11,7 @@ jobs:
           echo "name=test1" >> "$GITHUB_OUTPUT"
       - name: call-output
         run: |
-          echo "1st output:"  ${{ steps.output1.output.name }}
+          echo "1st output:   ${{ steps.output1.output.name }} "
 
   2nd_job:
     needs: [1st_job]
@@ -19,4 +19,4 @@ jobs:
     steps:
       - name: call-output
         run: |
-        echo "2nd output: " ${{ needs.1st_job.outputs.name }}
+        echo "2nd output:  ${{ needs.1st_job.outputs.name }}""
