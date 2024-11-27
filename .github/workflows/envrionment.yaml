@@ -13,13 +13,13 @@ jobs:
           echo "level=job" >> $GITHUB_ENV
       - name: get env
         run: |
-          echo 'env.level'
+          echo ${{ env.level }}
 
   check-env:
     runs-on: ubuntu-latest
     steps:
       - name: get env
         run: |
-          echo 'env.level'
+          echo ${{ env.level }}
 
  
