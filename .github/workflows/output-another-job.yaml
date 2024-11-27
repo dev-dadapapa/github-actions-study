@@ -4,8 +4,8 @@ on: workflow_dispatch
 jobs:
   1st_job:
     runs-on: ubuntu-latest
-    outputs: #job level outout
-     j_name: ${{ steps.output1.outputs.name}}
+    outputs:  
+     share_name: ${{ steps.output1.outputs.name}}
     steps:
       - name: make-output
         id: output1
@@ -21,4 +21,4 @@ jobs:
     steps:
       - name: call-output
         run: |
-          echo  ${{ needs.1st_job.outputs.j_name }}
+          echo  ${{ needs.1st_job.outputs.share_name }}
